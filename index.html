@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionario — Corso Integrato</title>
+  <style>
+    :root { --bg:#f6f4ef; --card:#fff; --text:#222; --muted:#666; --accent:#222; --border:#ddd; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial,sans-serif; background:var(--bg); color:var(--text); }
+    .wrap { max-width:850px; margin:40px auto; padding:20px; }
+    .hero { margin-bottom:25px; }
+    h1 { font-size:32px; margin:0 0 10px; }
+    h2 { font-size:20px; margin-top:35px; border-bottom:1px solid var(--border); padding-bottom:10px; }
+    p { line-height:1.55; color:var(--muted); }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:25px; margin-bottom:18px; box-shadow:0 4px 16px rgba(0,0,0,.04); }
+    label { display:block; font-weight:600; margin:18px 0 8px; }
+    input[type=text], input[type=email], textarea, select {
+      width:100%; padding:12px; border:1px solid #ccc; border-radius:9px; font:inherit;
+    }
+    textarea { min-height:110px; resize:vertical; }
+    .scale { display:flex; gap:10px; flex-wrap:wrap; }
+    .scale label { margin:0; font-weight:normal; }
+    .scale input { margin-right:4px; }
+    .check label, .radio label { font-weight:normal; margin:9px 0; }
+    button { background:var(--accent); color:white; border:0; padding:14px 22px; border-radius:10px; font-size:16px; cursor:pointer; }
+    button:disabled { opacity:.6; cursor:wait; }
+    .success, .error { display:none; margin-top:15px; padding:14px; border-radius:10px; }
+    .success { background:#e8f5e9; color:#256029; }
+    .error { background:#ffebee; color:#b71c1c; }
+    small { color:var(--muted); }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <h1>Progettazione del corso integrato</h1>
+    <p>Questionario per i docenti di Benessere, Teatro e Scrittura cinematografica. Le risposte verranno archiviate automaticamente nel Google Sheet collegato.</p>
+  </div>
+
+  <form id="form">
+    <div class="card">
+      <h2>Dati docente</h2>
+      <label>Nome e cognome *</label>
+      <input name="nome" required>
+
+      <label>Disciplina *</label>
+      <select name="disciplina" required>
+        <option value="">Seleziona</option>
+        <option>Benessere</option>
+        <option>Teatro</option>
+        <option>Scrittura cinematografica</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <h2>1. La tua disciplina</h2>
+      <label>1. Qual è il principale obiettivo del tuo corso?</label>
+      <textarea name="q1"></textarea>
+      <label>2. Quali sono le 3–5 competenze principali che vuoi sviluppare?</label>
+      <textarea name="q2"></textarea>
+      <label>3. Quali attività/esercizi utilizzi maggiormente?</label>
+      <textarea name="q3"></textarea>
+      <label>4. Cosa dovrebbe saper fare o sperimentare una persona alla fine?</label>
+      <textarea name="q4"></textarea>
+      <label>5. Qual è la cosa più importante che il partecipante porta a casa?</label>
+      <textarea name="q5"></textarea>
+    </div>
+
+    <div class="card">
+      <h2>2. La trasformazione</h2>
+      <label>6. Qual è il “prima e dopo” del partecipante?</label>
+      <textarea name="q6"></textarea>
+      <label>7. Quale trasformazione personale vorresti generare?</label>
+      <textarea name="q7"></textarea>
+      <label>8. Quali emozioni vorresti far sperimentare?</label>
+      <div class="check">
+        <label><input type="checkbox" name="q8" value="Consapevolezza"> Consapevolezza</label>
+        <label><input type="checkbox" name="q8" value="Libertà"> Libertà</label>
+        <label><input type="checkbox" name="q8" value="Divertimento"> Divertimento</label>
+        <label><input type="checkbox" name="q8" value="Curiosità"> Curiosità</label>
+        <label><input type="checkbox" name="q8" value="Sicurezza"> Sicurezza</label>
+        <label><input type="checkbox" name="q8" value="Coraggio"> Coraggio</label>
+        <label><input type="checkbox" name="q8" value="Creatività"> Creatività</label>
+        <label><input type="checkbox" name="q8" value="Connessione"> Connessione</label>
+        <label><input type="checkbox" name="q8" value="Espressione"> Espressione</label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3. Il tuo metodo</h2>
+      <p>Valuta da 1 a 5 quanto sono importanti questi elementi nel tuo metodo.</p>
+      <div id="scales"></div>
+    </div>
+
+    <div class="card">
+      <h2>4. L'incontro con gli altri docenti</h2>
+      <label>11. Cosa può dare la tua disciplina al Teatro?</label>
+      <textarea name="q11"></textarea>
+      <label>12. Cosa può dare il Teatro alla tua disciplina?</label>
+      <textarea name="q12"></textarea>
+      <label>13. Cosa può dare la tua disciplina alla Scrittura cinematografica?</label>
+      <textarea name="q13"></textarea>
+      <label>14. Cosa può dare la Scrittura cinematografica alla tua disciplina?</label>
+      <textarea name="q14"></textarea>
+      <label>15. Quale elemento del tuo metodo potrebbe diventare punto di partenza per un altro docente?</label>
+      <textarea name="q15"></textarea>
+      <label>16. Quale elemento degli altri due docenti vorresti integrare nel tuo?</label>
+      <textarea name="q16"></textarea>
+    </div>
+
+    <div class="card">
+      <h2>5. Immaginare il corso</h2>
+      <label>17. Come vorresti che fosse cambiata una persona alla fine?</label>
+      <textarea name="q17"></textarea>
+      <label>18. Quale potrebbe essere il filo conduttore delle tre discipline?</label>
+      <textarea name="q18"></textarea>
+      <label>19. Come immagini un'esperienza che utilizzi tutte e tre?</label>
+      <textarea name="q19"></textarea>
+      <label>20. Quale attività potrebbe coinvolgerle contemporaneamente?</label>
+      <textarea name="q20"></textarea>
+    </div>
+
+    <div class="card">
+      <h2>6. Il progetto finale</h2>
+      <label>21. Il percorso dovrebbe portare a un risultato concreto?</label>
+      <div class="radio">
+        <label><input type="radio" name="q21" value="Sì"> Sì</label>
+        <label><input type="radio" name="q21" value="No"> No</label>
+        <label><input type="radio" name="q21" value="Non necessariamente"> Non necessariamente</label>
+        <label><input type="radio" name="q21" value="Non so"> Non so</label>
+      </div>
+      <label>22. Cosa ti piacerebbe realizzare?</label>
+      <div class="check">
+        <label><input type="checkbox" name="q22" value="Performance"> Performance</label>
+        <label><input type="checkbox" name="q22" value="Scena teatrale"> Scena teatrale</label>
+        <label><input type="checkbox" name="q22" value="Monologo"> Monologo</label>
+        <label><input type="checkbox" name="q22" value="Sceneggiatura"> Sceneggiatura</label>
+        <label><input type="checkbox" name="q22" value="Cortometraggio"> Cortometraggio</label>
+        <label><input type="checkbox" name="q22" value="Progetto audiovisivo"> Progetto audiovisivo</label>
+        <label><input type="checkbox" name="q22" value="Esperienza collettiva"> Esperienza collettiva</label>
+        <label><input type="checkbox" name="q22" value="Progetto personale"> Progetto personale</label>
+      </div>
+      <label>23. Quale potrebbe essere il ruolo della tua disciplina nel progetto finale?</label>
+      <textarea name="q23"></textarea>
+    </div>
+
+    <div class="card">
+      <h2>7. La visione</h2>
+      <label>24. Se avessimo carta bianca, che esperienza vorresti far vivere alle persone?</label>
+      <textarea name="q24"></textarea>
+      <label>25. C'è qualcosa che non ti abbiamo chiesto?</label>
+      <textarea name="q25"></textarea>
+    </div>
+
+    <button id="submitBtn" type="submit">Invia questionario</button>
+    <div id="success" class="success">Questionario inviato correttamente.</div>
+    <div id="error" class="error">Si è verificato un errore. Controlla la configurazione del collegamento al Google Sheet.</div>
+  </form>
+</div>
+
+<script>
+const elements = ["Corpo","Emozioni","Voce","Relazione con gli altri","Creatività","Immaginazione","Esperienza personale"];
+const scales = document.getElementById("scales");
+elements.forEach((el, i) => {
+  const div = document.createElement("div");
+  div.innerHTML = `<label>${el}</label><div class="scale">` +
+    [1,2,3,4,5].map(n => `<label><input type="radio" name="scala_${i}" value="${n}" required>${n}</label>`).join("") +
+    `</div>`;
+  scales.appendChild(div);
+});
+
+document.getElementById("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true;
+
+  const fd = new FormData(e.target);
+  const data = {};
+  for (const [key, value] of fd.entries()) {
+    if (data[key]) data[key] += " | " + value;
+    else data[key] = value;
+  }
+
+  try {
+    // Sostituisci con l'URL della tua Web App Apps Script.
+    const SCRIPT_URL = "INCOLLA_QUI_URL_WEB_APP";
+    const response = await fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {"Content-Type":"application/x-www-form-urlencoded"},
+      body: new URLSearchParams(data)
+    });
+    document.getElementById("success").style.display = "block";
+    document.getElementById("error").style.display = "none";
+    e.target.reset();
+    window.scrollTo({top:0, behavior:"smooth"});
+  } catch (err) {
+    document.getElementById("error").style.display = "block";
+    document.getElementById("success").style.display = "none";
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
