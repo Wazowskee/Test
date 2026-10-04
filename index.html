@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Progettazione del Corso Integrato</title>
+
   <style>
     :root {
       --bg: #f6f4ef;
@@ -18,7 +19,9 @@
       --error-text: #b71c1c;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -44,7 +47,7 @@
 
     h2 {
       font-size: 20px;
-      margin-top: 0;
+      margin: 0 0 20px;
       border-bottom: 1px solid var(--border);
       padding-bottom: 10px;
     }
@@ -60,7 +63,7 @@
       border-radius: 16px;
       padding: 25px;
       margin-bottom: 18px;
-      box-shadow: 0 4px 16px rgba(0,0,0,.04);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .04);
     }
 
     label {
@@ -77,7 +80,7 @@
       border: 1px solid #ccc;
       border-radius: 9px;
       font: inherit;
-      background: white;
+      background: #fff;
     }
 
     textarea {
@@ -89,7 +92,7 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
 
     .scale label,
@@ -106,9 +109,14 @@
       margin: 0;
     }
 
+    .check label,
+    .radio label {
+      display: block;
+    }
+
     button {
       background: var(--accent);
-      color: white;
+      color: #fff;
       border: 0;
       padding: 14px 22px;
       border-radius: 10px;
@@ -161,10 +169,12 @@
 </head>
 
 <body>
+
 <div class="wrap">
 
   <div class="hero">
     <h1>Progettazione del corso integrato</h1>
+
     <p>
       Questionario per i docenti di Benessere, Teatro e Scrittura cinematografica.
       L'obiettivo è individuare connessioni, complementarità e possibili modalità
@@ -174,170 +184,398 @@
 
   <form id="form">
 
+    <!-- DATI DOCENTE -->
     <div class="card">
       <h2>Dati docente</h2>
 
-      <label for="nome">Nome e cognome <span class="required">*</span></label>
-      <input id="nome" name="nome" type="text" required>
+      <label for="nome">
+        Nome e cognome <span class="required">*</span>
+      </label>
 
-      <label for="disciplina">Disciplina <span class="required">*</span></label>
-      <select id="disciplina" name="disciplina" required>
+      <input
+        id="nome"
+        name="nome"
+        type="text"
+        required
+      >
+
+      <label for="disciplina">
+        Disciplina <span class="required">*</span>
+      </label>
+
+      <select
+        id="disciplina"
+        name="disciplina"
+        required
+      >
         <option value="">Seleziona</option>
         <option value="Benessere">Benessere</option>
         <option value="Teatro">Teatro</option>
-        <option value="Scrittura cinematografica">Scrittura cinematografica</option>
+        <option value="Scrittura cinematografica">
+          Scrittura cinematografica
+        </option>
       </select>
     </div>
 
+
+    <!-- 1 -->
     <div class="card">
+
       <h2>1. La tua disciplina</h2>
 
       <label>1. Qual è il principale obiettivo del tuo corso?</label>
       <textarea name="q1"></textarea>
 
-      <label>2. Quali sono le 3–5 competenze principali che vuoi sviluppare?</label>
+      <label>
+        2. Quali sono le 3–5 competenze principali che vuoi sviluppare?
+      </label>
       <textarea name="q2"></textarea>
 
-      <label>3. Quali attività/esercizi utilizzi maggiormente?</label>
+      <label>
+        3. Quali attività/esercizi utilizzi maggiormente?
+      </label>
       <textarea name="q3"></textarea>
 
-      <label>4. Cosa dovrebbe saper fare o sperimentare una persona alla fine?</label>
+      <label>
+        4. Cosa dovrebbe saper fare o sperimentare una persona alla fine?
+      </label>
       <textarea name="q4"></textarea>
 
-      <label>5. Qual è la cosa più importante che il partecipante porta a casa?</label>
+      <label>
+        5. Qual è la cosa più importante che il partecipante porta a casa?
+      </label>
       <textarea name="q5"></textarea>
+
     </div>
 
+
+    <!-- 2 -->
     <div class="card">
+
       <h2>2. La trasformazione</h2>
 
-      <label>6. Qual è il “prima e dopo” del partecipante?</label>
+      <label>
+        6. Qual è il “prima e dopo” del partecipante?
+      </label>
+
       <textarea name="q6"></textarea>
 
-      <label>7. Quale trasformazione personale vorresti generare?</label>
+      <label>
+        7. Quale trasformazione personale vorresti generare?
+      </label>
+
       <textarea name="q7"></textarea>
 
-      <label>8. Quali emozioni vorresti far sperimentare?</label>
+      <label>
+        8. Quali emozioni vorresti far sperimentare?
+      </label>
+
       <div class="check">
-        <label><input type="checkbox" name="q8" value="Consapevolezza"> Consapevolezza</label>
-        <label><input type="checkbox" name="q8" value="Libertà"> Libertà</label>
-        <label><input type="checkbox" name="q8" value="Divertimento"> Divertimento</label>
-        <label><input type="checkbox" name="q8" value="Curiosità"> Curiosità</label>
-        <label><input type="checkbox" name="q8" value="Sicurezza"> Sicurezza</label>
-        <label><input type="checkbox" name="q8" value="Coraggio"> Coraggio</label>
-        <label><input type="checkbox" name="q8" value="Creatività"> Creatività</label>
-        <label><input type="checkbox" name="q8" value="Connessione"> Connessione</label>
-        <label><input type="checkbox" name="q8" value="Espressione"> Espressione</label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Consapevolezza">
+          Consapevolezza
+        </label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Libertà">
+          Libertà
+        </label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Divertimento">
+          Divertimento
+        </label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Curiosità">
+          Curiosità
+        </label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Sicurezza">
+          Sicurezza
+        </label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Coraggio">
+          Coraggio
+        </label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Creatività">
+          Creatività
+        </label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Connessione">
+          Connessione
+        </label>
+
+        <label>
+          <input type="checkbox" name="q8" value="Espressione">
+          Espressione
+        </label>
+
       </div>
+
     </div>
 
+
+    <!-- 3 -->
     <div class="card">
+
       <h2>3. Il tuo metodo</h2>
-      <p>Valuta da 1 a 5 quanto sono importanti questi elementi nel tuo metodo.</p>
+
+      <p>
+        Valuta da 1 a 5 quanto sono importanti questi elementi nel tuo metodo.
+      </p>
+
       <div id="scales"></div>
+
     </div>
 
+
+    <!-- 4 -->
     <div class="card">
+
       <h2>4. L'incontro con gli altri docenti</h2>
 
-      <label>11. Cosa può dare la tua disciplina al Teatro?</label>
+      <label>
+        11. Cosa può dare la tua disciplina al Teatro?
+      </label>
+
       <textarea name="q11"></textarea>
 
-      <label>12. Cosa può dare il Teatro alla tua disciplina?</label>
+      <label>
+        12. Cosa può dare il Teatro alla tua disciplina?
+      </label>
+
       <textarea name="q12"></textarea>
 
-      <label>13. Cosa può dare la tua disciplina alla Scrittura cinematografica?</label>
+      <label>
+        13. Cosa può dare la tua disciplina alla Scrittura cinematografica?
+      </label>
+
       <textarea name="q13"></textarea>
 
-      <label>14. Cosa può dare la Scrittura cinematografica alla tua disciplina?</label>
+      <label>
+        14. Cosa può dare la Scrittura cinematografica alla tua disciplina?
+      </label>
+
       <textarea name="q14"></textarea>
 
-      <label>15. Quale elemento del tuo metodo potrebbe diventare punto di partenza per un altro docente?</label>
+      <label>
+        15. Quale elemento del tuo metodo potrebbe diventare
+        punto di partenza per un altro docente?
+      </label>
+
       <textarea name="q15"></textarea>
 
-      <label>16. Quale elemento degli altri due docenti vorresti integrare nel tuo?</label>
+      <label>
+        16. Quale elemento degli altri due docenti vorresti integrare nel tuo?
+      </label>
+
       <textarea name="q16"></textarea>
+
     </div>
 
+
+    <!-- 5 -->
     <div class="card">
+
       <h2>5. Immaginare il corso</h2>
 
-      <label>17. Come vorresti che fosse cambiata una persona alla fine?</label>
+      <label>
+        17. Come vorresti che fosse cambiata una persona alla fine?
+      </label>
+
       <textarea name="q17"></textarea>
 
-      <label>18. Quale potrebbe essere il filo conduttore delle tre discipline?</label>
+      <label>
+        18. Quale potrebbe essere il filo conduttore delle tre discipline?
+      </label>
+
       <textarea name="q18"></textarea>
 
-      <label>19. Come immagini un'esperienza che utilizzi tutte e tre?</label>
+      <label>
+        19. Come immagini un'esperienza che utilizzi tutte e tre?
+      </label>
+
       <textarea name="q19"></textarea>
 
-      <label>20. Quale attività potrebbe coinvolgerle contemporaneamente?</label>
+      <label>
+        20. Quale attività potrebbe coinvolgerle contemporaneamente?
+      </label>
+
       <textarea name="q20"></textarea>
+
     </div>
 
+
+    <!-- 6 -->
     <div class="card">
+
       <h2>6. Il progetto finale</h2>
 
-      <label>21. Il percorso dovrebbe portare a un risultato concreto?</label>
+      <label>
+        21. Il percorso dovrebbe portare a un risultato concreto?
+      </label>
+
       <div class="radio">
-        <label><input type="radio" name="q21" value="Sì"> Sì</label>
-        <label><input type="radio" name="q21" value="No"> No</label>
-        <label><input type="radio" name="q21" value="Non necessariamente"> Non necessariamente</label>
-        <label><input type="radio" name="q21" value="Non so"> Non so</label>
+
+        <label>
+          <input type="radio" name="q21" value="Sì">
+          Sì
+        </label>
+
+        <label>
+          <input type="radio" name="q21" value="No">
+          No
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="q21"
+            value="Non necessariamente"
+          >
+          Non necessariamente
+        </label>
+
+        <label>
+          <input type="radio" name="q21" value="Non so">
+          Non so
+        </label>
+
       </div>
 
-      <label>22. Cosa ti piacerebbe realizzare?</label>
+
+      <label>
+        22. Cosa ti piacerebbe realizzare?
+      </label>
+
       <div class="check">
-        <label><input type="checkbox" name="q22" value="Performance"> Performance</label>
-        <label><input type="checkbox" name="q22" value="Scena teatrale"> Scena teatrale</label>
-        <label><input type="checkbox" name="q22" value="Monologo"> Monologo</label>
-        <label><input type="checkbox" name="q22" value="Sceneggiatura"> Sceneggiatura</label>
-        <label><input type="checkbox" name="q22" value="Cortometraggio"> Cortometraggio</label>
-        <label><input type="checkbox" name="q22" value="Progetto audiovisivo"> Progetto audiovisivo</label>
-        <label><input type="checkbox" name="q22" value="Esperienza collettiva"> Esperienza collettiva</label>
-        <label><input type="checkbox" name="q22" value="Progetto personale"> Progetto personale</label>
+
+        <label>
+          <input type="checkbox" name="q22" value="Performance">
+          Performance
+        </label>
+
+        <label>
+          <input type="checkbox" name="q22" value="Scena teatrale">
+          Scena teatrale
+        </label>
+
+        <label>
+          <input type="checkbox" name="q22" value="Monologo">
+          Monologo
+        </label>
+
+        <label>
+          <input type="checkbox" name="q22" value="Sceneggiatura">
+          Sceneggiatura
+        </label>
+
+        <label>
+          <input type="checkbox" name="q22" value="Cortometraggio">
+          Cortometraggio
+        </label>
+
+        <label>
+          <input type="checkbox" name="q22" value="Progetto audiovisivo">
+          Progetto audiovisivo
+        </label>
+
+        <label>
+          <input type="checkbox" name="q22" value="Esperienza collettiva">
+          Esperienza collettiva
+        </label>
+
+        <label>
+          <input type="checkbox" name="q22" value="Progetto personale">
+          Progetto personale
+        </label>
+
       </div>
 
-      <label>23. Quale potrebbe essere il ruolo della tua disciplina nel progetto finale?</label>
+
+      <label>
+        23. Quale potrebbe essere il ruolo della tua disciplina
+        nel progetto finale?
+      </label>
+
       <textarea name="q23"></textarea>
+
     </div>
 
+
+    <!-- 7 -->
     <div class="card">
+
       <h2>7. La visione</h2>
 
-      <label>24. Se avessimo carta bianca, che esperienza vorresti far vivere alle persone?</label>
+      <label>
+        24. Se avessimo carta bianca,
+        che esperienza vorresti far vivere alle persone?
+      </label>
+
       <textarea name="q24"></textarea>
 
-      <label>25. C'è qualcosa che non ti abbiamo chiesto?</label>
+      <label>
+        25. C'è qualcosa che non ti abbiamo chiesto?
+      </label>
+
       <textarea name="q25"></textarea>
+
     </div>
 
-    <button id="submitBtn" type="submit">Invia questionario</button>
 
-    <div id="success" class="message success">
+    <button
+      id="submitBtn"
+      type="submit"
+    >
+      Invia questionario
+    </button>
+
+
+    <div
+      id="success"
+      class="message success"
+    >
       <strong>Questionario inviato!</strong><br>
-      Le tue risposte sono state registrate correttamente.
+      Le tue risposte sono state registrate.
     </div>
 
-    <div id="error" class="message error">
-      <strong>Non è stato possibile inviare il questionario.</strong><br>
-      Controlla la connessione e riprova. Se il problema continua, contatta l'organizzazione.
+
+    <div
+      id="error"
+      class="message error"
+    >
+      <strong>Si è verificato un errore.</strong><br>
+      Le risposte potrebbero non essere state registrate.
+      Riprova oppure contatta l'organizzazione.
     </div>
 
   </form>
+
 </div>
 
+
 <script>
+
   // ==========================================================
-  // GOOGLE APPS SCRIPT WEB APP
+  // GOOGLE APPS SCRIPT
   // ==========================================================
+
   const SCRIPT_URL =
-    "https://script.google.com/a/macros/physarum.xyz/s/AKfycbwEz0Blrirq2Bz_5PQTr1w-tGL8XxdhwmYS-AieGh98DfAXF-mjGzeJSeMz958pRO0P/exec";
+    "https://script.google.com/macros/s/AKfycbwEz0Blrirq2Bz_5PQTr1w-tGL8XxdhwmYS-AieGh98DfAXF-mjGzeJSeMz958pRO0P/exec";
 
 
   // ==========================================================
-  // GENERAZIONE AUTOMATICA DELLE SCALE 1–5
+  // SCALE
   // ==========================================================
+
   const elements = [
     "Corpo",
     "Emozioni",
@@ -348,118 +586,230 @@
     "Esperienza personale"
   ];
 
-  const scales = document.getElementById("scales");
+  const scalesContainer =
+    document.getElementById("scales");
+
 
   elements.forEach((element, index) => {
-    const wrapper = document.createElement("div");
 
-    const title = document.createElement("label");
-    title.textContent = element;
+    const wrapper =
+      document.createElement("div");
+
+    const title =
+      document.createElement("label");
+
+    title.textContent =
+      element;
+
     wrapper.appendChild(title);
 
-    const scale = document.createElement("div");
-    scale.className = "scale";
+
+    const scale =
+      document.createElement("div");
+
+    scale.className =
+      "scale";
+
 
     [1, 2, 3, 4, 5].forEach(number => {
-      const label = document.createElement("label");
 
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = `scala_${index}`;
-      input.value = number;
-      input.required = true;
+      const label =
+        document.createElement("label");
+
+      const input =
+        document.createElement("input");
+
+      input.type =
+        "radio";
+
+      input.name =
+        "scala_" + index;
+
+      input.value =
+        number;
+
+      input.required =
+        true;
+
 
       label.appendChild(input);
-      label.appendChild(document.createTextNode(number));
+
+      label.appendChild(
+        document.createTextNode(number)
+      );
+
 
       scale.appendChild(label);
+
     });
 
+
     wrapper.appendChild(scale);
-    scales.appendChild(wrapper);
+
+    scalesContainer.appendChild(wrapper);
+
   });
 
 
   // ==========================================================
-  // INVIO DEL FORM
+  // INVIO
   // ==========================================================
-  document.getElementById("form").addEventListener("submit", async function(event) {
 
-    event.preventDefault();
+  const form =
+    document.getElementById("form");
 
-    const form = event.target;
-    const button = document.getElementById("submitBtn");
-    const success = document.getElementById("success");
-    const error = document.getElementById("error");
+  const submitButton =
+    document.getElementById("submitBtn");
 
-    success.style.display = "none";
-    error.style.display = "none";
+  const successMessage =
+    document.getElementById("success");
 
-    button.disabled = true;
-    button.textContent = "Invio in corso...";
+  const errorMessage =
+    document.getElementById("error");
 
-    const formData = new FormData(form);
-    const data = {};
 
-    // Gestisce correttamente checkbox multipli
-    for (const [key, value] of formData.entries()) {
-      if (data[key]) {
-        data[key] += " | " + value;
-      } else {
-        data[key] = value;
-      }
-    }
+  form.addEventListener(
+    "submit",
+    async function(event) {
 
-    // Aggiunge un identificativo univoco alla compilazione
-    data.submission_id =
-      "SUB-" +
-      Date.now() +
-      "-" +
-      Math.random().toString(36).substring(2, 8);
+      event.preventDefault();
 
-    try {
+
+      successMessage.style.display =
+        "none";
+
+      errorMessage.style.display =
+        "none";
+
+
+      submitButton.disabled =
+        true;
+
+      submitButton.textContent =
+        "Invio in corso...";
+
+
+      const formData =
+        new FormData(form);
+
+
+      const data = {};
+
 
       /*
-       * Apps Script riceve i dati come POST.
+       * Trasforma i dati del form in un oggetto.
        *
-       * no-cors è necessario perché la Web App di Google
-       * non espone normalmente gli header CORS al browser.
+       * Se una domanda ha più checkbox selezionati,
+       * i valori vengono concatenati con " | ".
        */
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-        },
-        body: new URLSearchParams(data).toString()
-      });
+
+      for (
+        const [key, value]
+        of formData.entries()
+      ) {
+
+        if (data[key]) {
+
+          data[key] +=
+            " | " + value;
+
+        } else {
+
+          data[key] =
+            value;
+
+        }
+
+      }
+
 
       /*
-       * Con no-cors il browser non può leggere la risposta
-       * del server. La richiesta però viene inviata.
+       * ID univoco della compilazione.
        */
-      success.style.display = "block";
-      form.reset();
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      data.submission_id =
+        "SUB-" +
+        Date.now() +
+        "-" +
+        Math.random()
+          .toString(36)
+          .substring(2, 8);
 
-    } catch (err) {
 
-      console.error("Errore invio:", err);
+      try {
 
-      error.style.display = "block";
+        /*
+         * Invio verso Google Apps Script.
+         *
+         * L'endpoint è pubblico.
+         */
 
-    } finally {
+        await fetch(
+          SCRIPT_URL,
+          {
+            method: "POST",
 
-      button.disabled = false;
-      button.textContent = "Invia questionario";
+            mode: "no-cors",
+
+            headers: {
+              "Content-Type":
+                "application/x-www-form-urlencoded;charset=UTF-8"
+            },
+
+            body:
+              new URLSearchParams(data)
+                .toString()
+          }
+        );
+
+
+        /*
+         * IMPORTANTE:
+         *
+         * Google Apps Script con no-cors
+         * non permette al browser di leggere
+         * la risposta del server.
+         *
+         * Quindi, se fetch non genera un errore,
+         * consideriamo l'invio effettuato.
+         */
+
+        successMessage.style.display =
+          "block";
+
+
+        form.reset();
+
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+
+      } catch (error) {
+
+        console.error(
+          "Errore durante l'invio:",
+          error
+        );
+
+
+        errorMessage.style.display =
+          "block";
+
+      }
+
+
+      submitButton.disabled =
+        false;
+
+      submitButton.textContent =
+        "Invia questionario";
 
     }
+  );
 
-  });
 </script>
 
 </body>
